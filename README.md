@@ -9,7 +9,7 @@ Language agnostic path finding between source and target function calls.
 
 ## Requirements
 
-- Java 1.8
+- Java 1.8 (Java parser)
 - Python 2.7
 
 Add environment variables:
