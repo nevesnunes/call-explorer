@@ -1,0 +1,8 @@
+**/*-summary.md
+**/*.gpickle
+**/*.json
+**/*.out
+**/*.txt
+**/*.zip
+**/contexts/
+**/data/*
