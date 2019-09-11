@@ -3,6 +3,7 @@
 **/*.json
 **/*.out
 **/*.txt
-**/*.zip
 **/contexts/
 **/data/*
+*.zip
+!requirements.txt
