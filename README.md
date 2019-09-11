@@ -10,18 +10,18 @@ Language agnostic path finding between source and target function calls.
 ## Requirements
 
 - Java 1.8
-- Python 2.7 (Install in /c/Python27)
+- Python 2.7
 
 Add environment variables:
 
-```
+```bash
 export JAVA_HOME=/c/Program\ Files/Java/jdk1.8.0_141
 export PATH=$PATH:$JAVA_HOME/bin
 ```
 
 Install python dependencies:
 
-```
+```bash
 pip install -r requirements.txt
 # or
 python2 -m pip install -r requirements.txt
@@ -35,11 +35,11 @@ Some languages have dedicated helper scripts available:
 
 Add your ears with the following convention:
 
-- ./modules/NAME/NAME.ear
+- `./modules/NAME/NAME.ear`
 
 Run shell scripts in the following order:
 
-```
+```bash
 # Generates calls.txt using `java-callgraph`
 ./extract-calls.sh 
 
@@ -52,7 +52,13 @@ Run shell scripts in the following order:
 
 ### C/C++
 
-[Create CFG](https://gist.github.com/mudongliang/e911a9528bd61a6083e8692520a924a2)
+[Create CFG](https://gist.github.com/mudongliang/e911a9528bd61a6083e8692520a924a2):
+
+```bash
+clang -emit-llvm -c foo.c
+opt -dot-cfg foo.bc
+dot -Tpng -o foo.png foo.dot
+```
 
 **TODO**
 
