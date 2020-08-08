@@ -11,7 +11,7 @@ Language agnostic path finding between source and target function calls.
 
 ## Example
 
-The following steps use the ["Weather" sample](examples/spring-ws-samples/weather) from the Java Spring framework.
+The following steps use the ["Weather" sample](https://github.com/spring-projects/spring-ws-samples/tree/master/weather) from the Java Spring framework.
 
 Retrieve the sample:
 
