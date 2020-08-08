@@ -168,9 +168,10 @@ Some languages have dedicated helper scripts available:
 
 #### 1. Parse classes from container
 
-If you have all your dependencies in a container file format (e.g. `ear` or `war`), copy them under the following convention:
+If you have all your dependencies in a container file format (e.g. `ear` or `war`), copy them under one of the following filesystem paths:
 
-- `./modules/NAME/NAME.ear`
+- `./$target_path/$name/$name.ear`
+- `./$target_path/$name/$name.war`
 
 And parse them:
 
