@@ -137,7 +137,7 @@ WebServiceTemplate:sendRequest(WebServiceConnection, WebServiceMessage)
 
 ## Supported languages
 
-- Java
+- Java (via [java-callgraph](https://github.com/gousiosg/java-callgraph))
 - C/C++ (via LLVM optimizer output in [dot format](https://en.wikipedia.org/wiki/DOT_(graph_description_language)))
 
 ## Requirements
