@@ -1,0 +1,3 @@
+[submodule "examples/spring-ws-samples"]
+	path = examples/spring-ws-samples
+	url = https://github.com/spring-projects/spring-ws-samples

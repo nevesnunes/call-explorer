@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 # -*- coding: utf-8 -*-
 
 # Example:
@@ -21,7 +23,11 @@ def parseMethods(methods):
         logger.log("trace", "Treating passed methods as string: " + str(methods))
         parsedMethods = methods
 
-    return "|".join([x.strip() for x in parsedMethods.splitlines()]).strip("|")
+    pattern = "|".join([x.strip() for x in parsedMethods.splitlines()]).strip("|")
+    if len(pattern.strip()) == 0:
+        pattern = ".*"
+
+    return pattern
 
 if __name__ == "__main__":
     logger = utils.logging.Logger(True)
@@ -33,6 +39,7 @@ if __name__ == "__main__":
     targetPrefix = ""
     sourceName = ""
     targetName = ""
+    is_graph_unpickled = False
 
     if sys.argv[1].startswith("-"):
         args = sys.argv[1:]
@@ -53,6 +60,8 @@ if __name__ == "__main__":
                 sourceName = value
             elif option == "-N" or option == "--target-name":
                 targetName = value
+            elif option == "--unpickle":
+                is_graph_unpickled = bool(value)
             args = args[2:]
     else:
         filenameCalls = sys.argv[1]
@@ -82,5 +91,6 @@ if __name__ == "__main__":
         traversal.generic.Generic(logger, serializer)
     ]
     for traverser in traversers:
-        traverser = serializer.pickle2graph(traverser)
+        if is_graph_unpickled:
+            traverser = serializer.pickle2graph(traverser)
         traverser.traverse(lines, sourceMethods, targetMethods, sourcePrefix, targetPrefix)
