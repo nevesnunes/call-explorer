@@ -223,12 +223,11 @@ Alternatively, to find paths across multiple projects:
 
 ### C/C++
 
-[Create CFG](https://gist.github.com/mudongliang/e911a9528bd61a6083e8692520a924a2):
+Create CFG:
 
 ```bash
 clang -emit-llvm -c foo.c
 opt -dot-cfg foo.bc
-dot -Tpng -o foo.png foo.dot
 ```
 
 **TODO**
