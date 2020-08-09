@@ -6,7 +6,7 @@ Language agnostic path finding between source and target function calls.
 
 - For legacy codebases, it is not clear how public-facing API methods are internally used. By traversing multiple methods at a time (vs. one at a time in an IDE), we get a faster understanding of their usage:
     - API methods that were deprecated (no calls target them);
-    - Which controllers ([MVC pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)) handle which API methods;
+    - Which [controllers](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) handle which API methods;
     - How some classes (e.g. utils) cover more API method implementations than others, which may involve higher refactoring costs.
 
 ## Example
