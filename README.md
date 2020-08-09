@@ -42,7 +42,7 @@ public class WeatherClient extends WebServiceGatewaySupport {
 }
 ```
 
-We see a call to `setZIP`. Let's find all calls to it under the class `WeatherClient`:
+We see a call to `setZIP()`. Let's find all calls to it under the class `WeatherClient`:
 
 ```bash
 ./parsers/sum.py examples/data/calls.json <(echo 'weather') <(echo 'setZIP')
@@ -70,7 +70,7 @@ All patterns are case insensitive. Matches are done against classes or methods c
 
 Our script found the longest call path that reached the source method `getCityForecastByZip()`, starting at `main()`. All indented lines are of target methods reached from function `getCityForecastByZip()`. In this case, only one method contains the substring `setZIP`.
 
-We can also confirm that the call to `marshalSendAndReceive` is done from an instance returned by a getter called in `getCityForecastByZip()`, so the path starts at that instance:
+We can also confirm that the call to `marshalSendAndReceive()` is done from an instance returned by a getter called in `getCityForecastByZip()`, so the path starts at that instance:
 
 ```bash
 ./parsers/sum.py examples/data/calls.json <(echo '') <(echo 'marshal')
