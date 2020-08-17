@@ -9,7 +9,9 @@ Language agnostic path finding between source and target function calls.
     - Which [controllers](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) handle which API methods;
     - How some classes (e.g. utils) cover more API method implementations than others, which may involve higher refactoring costs.
 
-## Example
+## Examples
+
+### Java
 
 The following steps use the ["Weather" sample](https://github.com/spring-projects/spring-ws-samples/tree/master/weather) from the Java Spring framework.
 
@@ -134,6 +136,14 @@ WebServiceTemplate:sendRequest(WebServiceConnection, WebServiceMessage)
     send
 ```
 ````
+
+### Generic
+
+If there are no specific semantics in input calls (e.g. classes vs. methods), paths can be computed from the `2columns` parser:
+
+```bash
+printf '%s\n' '1 2' '2 3' '2 4' '4 5' | ./2columns/parser.py | ./sum.py '' '5'
+```
 
 ## Supported languages
 
