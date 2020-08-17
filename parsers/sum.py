@@ -64,20 +64,24 @@ if __name__ == "__main__":
                 is_graph_unpickled = bool(value)
             args = args[2:]
     else:
-        filenameCalls = sys.argv[1]
-        sourceMethods = sys.argv[2]
-        targetMethods = sys.argv[3]
+        if sys.stdin.isatty():
+            filenameCalls = sys.argv.pop(0)
+        sourceMethods = sys.argv[1]
+        targetMethods = sys.argv[2]
+        if len(sys.argv) > 3:
+            sourcePrefix = sys.argv[3]
         if len(sys.argv) > 4:
-            sourcePrefix = sys.argv[4]
+            targetPrefix = sys.argv[4]
         if len(sys.argv) > 5:
-            targetPrefix = sys.argv[5]
+            sourceName = sys.argv[5]
         if len(sys.argv) > 6:
-            sourceName = sys.argv[6]
-        if len(sys.argv) > 7:
-            targetName = sys.argv[7]
+            targetName = sys.argv[6]
 
-    with open(filenameCalls) as f:
-        lines = json.loads(f.read())
+    if not sys.stdin.isatty():
+        lines = json.loads(sys.stdin.read())
+    else:
+        with open(filenameCalls) as f:
+            lines = json.loads(f.read())
     sourceMethods = parseMethods(sourceMethods)
     targetMethods = parseMethods(targetMethods)
 
