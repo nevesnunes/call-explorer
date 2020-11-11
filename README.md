@@ -199,7 +199,7 @@ Otherwise, if you don't want to generate a "fat jar / uber jar / [shaded jar](ht
 output_dir=
 project_dir=
 
-cd $project_dir
+cd "$project_dir"
 mvn dependency:copy-dependencies -DoutputDirectory="$(realpath "$output_dir")"
 mvn package
 cp target/*.jar "$output_dir"
